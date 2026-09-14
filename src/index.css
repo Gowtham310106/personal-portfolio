@@ -24,15 +24,15 @@
   h1, h2, h3, h4 { @apply font-display font-extrabold text-ink; text-wrap: balance; }
   p { text-wrap: pretty; }
 
-  ::selection { background: #FFC800; color: #0B0B0F; }
+  ::selection { background: #FBC11F; color: #0B0B0F; }
 
   /* Slim, branded scrollbar */
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: #F2F2F0; }
   ::-webkit-scrollbar-thumb { background: #D4D4D2; border-radius: 99px; border: 3px solid #F2F2F0; }
-  ::-webkit-scrollbar-thumb:hover { background: #FFC800; }
+  ::-webkit-scrollbar-thumb:hover { background: #FBC11F; }
 
-  :focus-visible { outline: 2px solid #8F6B00; outline-offset: 3px; border-radius: 4px; }
+  :focus-visible { outline: 2px solid #8A6408; outline-offset: 3px; border-radius: 4px; }
 }
 
 @layer components {
@@ -90,7 +90,7 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(96deg, #0B0B0F 18%, #D9A400 58%, #0B0B0F 96%);
+    background: linear-gradient(96deg, #0B0B0F 18%, #D19A05 58%, #0B0B0F 96%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

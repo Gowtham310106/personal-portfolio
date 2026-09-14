@@ -58,12 +58,17 @@ entries there as new questions come up.
 
 Colours and type are defined in `tailwind.config.js`:
 
-- `accent` `#FFC800` — the yellow, for fills, buttons and the headline marker
-- `accent-700` `#8F6B00` — for text and thin strokes on white (pure yellow fails
+- `accent` `#FBC11F` — the brand yellow, sampled straight from the logo; used
+  for fills, buttons and the headline marker
+- `accent-700` `#8A6408` — for text and thin strokes on white (pure yellow fails
   contrast at small sizes)
-- `accent-chart` `#D9A400` — chart lines, small dots and indicators
+- `accent-chart` `#D19A05` — chart lines, small dots and indicators
 
 Anything with a yellow background uses **black** type, never white.
+
+The logo is vector, in `src/components/Logo.jsx` — `<Logo />` for the full
+lockup, `<LogoMark />` for the mark alone. `public/favicon.svg` is the same
+geometry. Nothing is a bitmap, so it stays sharp at any size.
 
 ## Deploying
 

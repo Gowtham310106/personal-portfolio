@@ -119,8 +119,8 @@ export function LineChart({ points = "0,52 26,44 52,47 78,30 104,34 130,18 156,2
     <svg viewBox={`0 0 ${w} ${h}`} className="h-full w-full" preserveAspectRatio="none" aria-hidden>
       <defs>
         <linearGradient id="bfw-area" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#D9A400" stopOpacity=".22" />
-          <stop offset="100%" stopColor="#D9A400" stopOpacity="0" />
+          <stop offset="0%" stopColor="#D19A05" stopOpacity=".22" />
+          <stop offset="100%" stopColor="#D19A05" stopOpacity="0" />
         </linearGradient>
       </defs>
       {[0.25, 0.5, 0.75].map((g) => (
@@ -137,7 +137,7 @@ export function LineChart({ points = "0,52 26,44 52,47 78,30 104,34 130,18 156,2
       <motion.polyline
         points={points}
         fill="none"
-        stroke="#8F6B00"
+        stroke="#8A6408"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -147,7 +147,7 @@ export function LineChart({ points = "0,52 26,44 52,47 78,30 104,34 130,18 156,2
         transition={{ delay: 0.45, duration: 1.4, ease }}
       />
       <motion.circle
-        cx="182" cy="8" r="3.2" fill="#D9A400"
+        cx="182" cy="8" r="3.2" fill="#D19A05"
         initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={inView}
         transition={{ delay: 1.6, type: "spring", stiffness: 300 }}
       />

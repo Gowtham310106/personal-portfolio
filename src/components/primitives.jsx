@@ -176,7 +176,7 @@ export function Magnetic({ children, strength = 0.35, className = "" }) {
 }
 
 /* ── Card with a cursor-following spotlight ────────────────────────────── */
-export function SpotlightCard({ children, className = "", tint = "255,200,0" }) {
+export function SpotlightCard({ children, className = "", tint = "251,193,31" }) {
   const ref = useRef(null)
   const [pos, setPos] = useState({ x: -300, y: -300 })
 

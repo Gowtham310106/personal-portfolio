@@ -32,7 +32,7 @@ export const caseStudies = [
     ],
     metrics: [], // e.g. [{ value: "3,200+", label: "Applications processed" }]
     stack: ["React", "Node.js", "PostgreSQL", "Role-based auth", "WhatsApp API"],
-    accent: "#FFC800",
+    accent: "#FBC11F",
   },
   {
     slug: "ecommerce-platform",

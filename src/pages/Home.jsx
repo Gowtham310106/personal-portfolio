@@ -115,7 +115,7 @@ function Hero() {
               {["Fixed price, quoted upfront", "Live link every week", "You own the code"].map((t) => (
                 <li key={t} className="flex items-center gap-2">
                   <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden>
-                    <path d="m3.5 8.5 3 3 6-7" stroke="#8F6B00" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="m3.5 8.5 3 3 6-7" stroke="#8A6408" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   {t}
                 </li>
@@ -319,7 +319,7 @@ function ShowcaseRow({ eyebrow, title, body, points, visual, flip = false }) {
               >
                 <span className="mt-[3px] grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent/10">
                   <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden>
-                    <path d="m3.5 8.5 3 3 6-7" stroke="#8F6B00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="m3.5 8.5 3 3 6-7" stroke="#8A6408" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
                 {p}

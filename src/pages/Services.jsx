@@ -156,7 +156,7 @@ function ServiceBlock({ service, index }) {
                   <div className="flex items-start gap-2.5 text-[15px] leading-snug text-ink-700">
                     <span className="mt-[3px] grid h-4.5 w-[18px] shrink-0 place-items-center">
                       <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden>
-                        <path d="m3.5 8.5 3 3 6-7" stroke="#8F6B00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="m3.5 8.5 3 3 6-7" stroke="#8A6408" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
                     {d}

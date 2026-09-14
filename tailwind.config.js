@@ -18,12 +18,12 @@ export default {
         // READ on white (text, thin strokes, icons) uses 700 — pure yellow on
         // white fails contrast.
         accent: {
-          DEFAULT: "#FFC800",
-          600: "#F0B800",
-          700: "#8F6B00",
-          chart: "#D9A400",
-          100: "#FFF1C2",
-          50: "#FFFBEB",
+          DEFAULT: "#FBC11F",
+          600: "#E9AE12",
+          700: "#8A6408",
+          chart: "#D19A05",
+          100: "#FDEFC0",
+          50: "#FFFAEA",
         },
       },
       fontFamily: {
@@ -39,7 +39,7 @@ export default {
       boxShadow: {
         card: "0 1px 2px rgba(11,11,15,.04), 0 8px 24px -12px rgba(11,11,15,.10)",
         lift: "0 24px 60px -28px rgba(11,11,15,.28)",
-        glow: "0 0 0 1px rgba(255,200,0,.35), 0 18px 50px -22px rgba(255,200,0,.55)",
+        glow: "0 0 0 1px rgba(251,193,31,.35), 0 18px 50px -22px rgba(251,193,31,.55)",
       },
       borderRadius: { xl2: "1.25rem", "4xl": "2rem" },
       keyframes: {

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import { site, waLink } from "../data/site"
+import { LogoMark } from "./Logo"
 
 /* ═══════════════════════════════════════════════════════════════════════
    "Bolt" — an on-site assistant that answers the questions people actually
@@ -276,10 +277,8 @@ export default function Chatbot() {
             className="fixed bottom-[92px] right-4 z-[56] flex h-[min(560px,72vh)] w-[calc(100vw-2rem)] max-w-[380px] flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-lift sm:right-6"
           >
             <header className="flex items-center gap-3 border-b border-line bg-ink px-4 py-3.5 text-white">
-              <span className="relative grid h-9 w-9 place-items-center rounded-full bg-white/10">
-                <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden>
-                  <path d="M4 10.6h4.1L6.6 16.5 15.5 8.4h-4.3L12.9 3 4 10.6Z" fill="#FFC800" />
-                </svg>
+              <span className="relative grid h-9 w-9 place-items-center">
+                <LogoMark size={34} tile="#16161B" />
                 <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-ink bg-emerald-400" />
               </span>
               <div className="leading-tight">
