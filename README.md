@@ -29,23 +29,33 @@ components:
 Pages are in `src/pages/` (Home, Services, Work, About, Contact, NotFound) and
 shared components in `src/components/`.
 
-### Lead form
+### Lead form → Zoho inbox
 
-`src/components/LeadForm.jsx` requires a name plus **either** a mobile number or
-an email — neither one alone is compulsory. The message box is optional.
+`src/components/LeadForm.jsx` requires a name plus **either** a mobile number
+or an email — neither one alone is compulsory. The message box is optional.
 
-By default a submission opens a pre-filled WhatsApp message so no enquiry is
-lost. To collect leads in an inbox or sheet instead, set a webhook endpoint
-(Formspree, Web3Forms, or your own API):
+Submissions (from both the form and the chatbot) are POSTed to `/api/lead`,
+a Vercel serverless function that emails them to the Zoho mailbox. Reply-To is
+set to the enquirer, so hitting Reply in Zoho answers them directly.
 
-```bash
-# .env
-VITE_LEAD_ENDPOINT="https://formspree.io/f/xxxxxxx"
-```
+**Environment variables** — set these in Vercel → Settings → Environment
+Variables. Never commit them.
 
-The form POSTs JSON (`name`, `phone`, `email`, `service`, `message`, `source`,
-`submittedAt`) and falls back to the WhatsApp handoff if the request fails.
-The chatbot posts its captured leads to the same endpoint.
+| Variable | Value |
+| --- | --- |
+| `ZOHO_USER` | `hello@buildfastweb.in` |
+| `ZOHO_PASS` | a Zoho **app-specific password**, not the login password |
+| `ZOHO_HOST` | optional — `smtp.zoho.in` (default) or `smtp.zoho.com`, match your region |
+| `LEAD_TO` | optional — where enquiries land; defaults to `ZOHO_USER` |
+
+To create the app password: Zoho Mail → your avatar → My Account → Security →
+App Passwords → Generate New Password. Copy it once; Zoho won't show it again.
+
+If the endpoint is unreachable or the mailbox is misconfigured, the form falls
+back to opening a pre-filled WhatsApp message, so an enquiry is never lost.
+
+To use a third-party form service instead, set `VITE_LEAD_ENDPOINT` to its URL
+and it takes over from `/api/lead`.
 
 ### Chatbot
 

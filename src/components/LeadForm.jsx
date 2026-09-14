@@ -75,7 +75,7 @@ export default function LeadForm({ compact = false, id = "lead-form" }) {
         const res = await fetch(site.leadEndpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({ ...values, company: undefined, source: site.domain, submittedAt: new Date().toISOString() }),
+          body: JSON.stringify({ ...values, source: site.domain, submittedAt: new Date().toISOString() }),
         })
         if (!res.ok) throw new Error(res.statusText)
         setState("done")

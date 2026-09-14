@@ -26,9 +26,12 @@ export const site = {
   location: "Tamil Nadu, India",
   serving: "Working with businesses across India, UAE & the US",
 
-  // Optional lead webhook (Formspree / Web3Forms / your own API).
-  // Set VITE_LEAD_ENDPOINT in .env — until then the form hands off to WhatsApp.
-  leadEndpoint: import.meta.env.VITE_LEAD_ENDPOINT || "",
+  // Where enquiries are POSTed. /api/lead is our own serverless function,
+  // which emails them to the Zoho inbox (see api/lead.js). Override with
+  // VITE_LEAD_ENDPOINT to use Formspree/Web3Forms instead. If the endpoint
+  // is unreachable the form falls back to a WhatsApp handoff, so an enquiry
+  // is never lost.
+  leadEndpoint: import.meta.env.VITE_LEAD_ENDPOINT || "/api/lead",
 }
 
 export const waLink = (message = "Hi Build Fast Web, I'd like to discuss a project.") =>
