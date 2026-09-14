@@ -45,11 +45,11 @@ export const nav = [
   { label: "Contact", to: "/contact" },
 ]
 
-// ⚠️ Placeholder proof points — swap these for your real, verifiable numbers
-// before you spend money on ads. Wrong claims kill trust faster than no claims.
+// Counted from the delivered portfolio in src/data/work.js — keep them in
+// step if you add or launch a project.
 export const stats = [
-  { value: 14, suffix: "+", label: "Systems shipped", sub: "Web, ERP, CRM & automation builds" },
-  { value: 21, suffix: " days", label: "Typical go-live", sub: "From kickoff to a working v1" },
-  { value: 9, suffix: "", label: "Industries served", sub: "Education, retail, clinics, hospitality" },
-  { value: 100, suffix: "%", label: "Built in-house", sub: "No outsourcing, no template dumps" },
+  { value: 10, suffix: "", label: "Client systems delivered", sub: "ERPs, CRMs, portals and storefronts" },
+  { value: 6, suffix: "", label: "Live in production", sub: "Running in businesses every day" },
+  { value: 5, suffix: "", label: "Industries served", sub: "Education, fuel retail, field services, retail, real estate" },
+  { value: 3, suffix: "", label: "Countries", sub: "India, Russia and US-facing builds" },
 ]

@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 
 import { site, stats, waLink } from "../data/site"
 import { serviceGroups, industrySolutions, process } from "../data/services"
-import { caseStudies, clients, faqs } from "../data/work"
+import { clients, faqs, featuredWork } from "../data/work"
 import { usePageMeta } from "../hooks/usePageMeta"
 
 import Icon from "../components/Icon"
@@ -448,8 +448,6 @@ function Industries() {
 
 /* ── Recent work ───────────────────────────────────────────────────────── */
 function RecentWork() {
-  const visuals = { crm: <DashboardCRM />, shop: <DashboardShop /> }
-
   return (
     <section className="section">
       <div className="container">
@@ -457,51 +455,45 @@ function RecentWork() {
           <SectionHeading
             eyebrow="Recent work"
             title="Systems already running in the real world."
-            sub="Two builds that replaced registers, spreadsheets and chat threads with software people actually log into."
+            sub="A college admissions portal, a petrol pump's daily operations, a field-service CRM — all live, all replacing paper."
           />
           <Reveal delay={0.2}>
-            <Link to="/work" className="btn-ghost shrink-0">See the case studies</Link>
+            <Link to="/work" className="btn-ghost shrink-0">See all 10 projects</Link>
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          {caseStudies.map((cs, i) => (
-            <Reveal key={cs.slug} delay={i * 0.1}>
+        <Stagger className="mt-14 grid gap-5 md:grid-cols-3" gap={0.1}>
+          {featuredWork.map((cs) => (
+            <StaggerItem key={cs.slug} className="h-full">
               <Link to="/work" className="block h-full">
-                <SpotlightCard className="card card-hover flex h-full flex-col overflow-hidden">
-                  <div className="relative h-[218px] overflow-hidden border-b border-line bg-paper px-5 pt-5">
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-16 bg-gradient-to-t from-paper to-transparent" />
-                    <motion.div
-                      initial={{ y: 18, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
-                      viewport={{ once: true, margin: "-60px" }}
-                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      className="origin-top scale-[0.97] transition-transform duration-700 group-hover:scale-100"
-                    >
-                      {visuals[cs.mockup]}
-                    </motion.div>
+                <SpotlightCard className="card card-hover flex h-full flex-col p-6">
+                  <div className="flex items-start justify-between gap-3">
+                    <img src={cs.logo} alt={cs.client} loading="lazy" className="h-10 w-auto max-w-[130px] object-contain" />
+                    <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-[10.5px] font-semibold text-emerald-700">
+                      <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-emerald-500 align-middle" />
+                      Live
+                    </span>
                   </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <div className="flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.14em] text-ink-400">
-                      <span>{cs.sector}</span>
-                      <span className="h-1 w-1 rounded-full bg-ink-300" />
-                      <span>{cs.year}</span>
-                    </div>
-                    <h3 className="mt-3 text-[21px] font-extrabold tracking-tight">{cs.title}</h3>
-                    <p className="mt-2.5 text-[15px] leading-relaxed text-ink-500">{cs.summary}</p>
-                    <div className="mt-5 flex flex-wrap gap-1.5 pt-5 border-t border-line">
-                      {cs.stack.map((t) => (
-                        <span key={t} className="rounded-full bg-paper px-2.5 py-1 font-mono text-[10.5px] uppercase tracking-wider text-ink-400 ring-1 ring-line">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+
+                  <p className="mt-6 font-mono text-[10.5px] uppercase tracking-[0.14em] text-ink-400">
+                    {cs.industry} · {cs.year}
+                  </p>
+                  <h3 className="mt-2 text-[20px] font-extrabold leading-snug tracking-tight">{cs.title}</h3>
+                  <p className="mt-1.5 text-[13.5px] font-semibold text-accent-700">{cs.client}</p>
+                  <p className="mt-3 text-[14.5px] leading-relaxed text-ink-500">{cs.summary}</p>
+
+                  <div className="mt-auto flex flex-wrap gap-1.5 pt-6">
+                    {cs.stack.slice(0, 4).map((t) => (
+                      <span key={t} className="rounded-full bg-paper px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-ink-400 ring-1 ring-line">
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 </SpotlightCard>
               </Link>
-            </Reveal>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   )

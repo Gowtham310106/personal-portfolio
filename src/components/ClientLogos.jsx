@@ -9,15 +9,15 @@ export default function ClientLogos({ clients = [], title = "Trusted by teams wh
   if (!clients.length) return null
 
   const Logo = (c) => (
-    <span key={c.name} className="group flex shrink-0 flex-col items-center gap-1.5 px-6">
+    <span key={c.name} className="group flex shrink-0 flex-col items-center gap-2 px-7">
       <img
         src={c.logo}
         alt={c.name}
         loading="lazy"
-        className="h-9 w-auto max-w-[150px] object-contain opacity-55 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0"
+        className="h-11 w-auto max-w-[160px] object-contain opacity-70 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0"
       />
       {c.system && (
-        <span className="text-[11px] text-ink-300 transition-colors duration-500 group-hover:text-ink-500">{c.system}</span>
+        <span className="text-[11.5px] text-ink-400 transition-colors duration-500 group-hover:text-ink">{c.system}</span>
       )}
     </span>
   )

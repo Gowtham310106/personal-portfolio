@@ -201,9 +201,9 @@ function Row({ cols, i, status }) {
 }
 
 /* ── 1. Admission / CRM dashboard ──────────────────────────────────────── */
-export function DashboardCRM({ className = "" }) {
+export function DashboardCRM({ className = "", url = "admissions.yourcollege.edu" }) {
   return (
-    <BrowserFrame url="admissions.yourcollege.edu" className={className}>
+    <BrowserFrame url={url} className={className}>
       <div className="flex min-h-[292px]">
         <Sidebar items={["Dashboard", "Enquiries", "Applications", "Fees", "Reports"]} active={0} label="Admissions" />
         <div className="min-w-0 flex-1">
@@ -269,9 +269,9 @@ export function DashboardShop({ className = "" }) {
 }
 
 /* ── 3. Inventory / ERP ────────────────────────────────────────────────── */
-export function DashboardERP({ className = "" }) {
+export function DashboardERP({ className = "", url = "erp.yourbusiness.in" }) {
   return (
-    <BrowserFrame url="erp.yourbusiness.in" className={className}>
+    <BrowserFrame url={url} className={className}>
       <div className="flex min-h-[250px]">
         <Sidebar items={["Dashboard", "Inventory", "Quotations", "Invoices", "Vendors"]} active={2} label="Ops" />
         <div className="min-w-0 flex-1">
