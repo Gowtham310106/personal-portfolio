@@ -4,12 +4,13 @@ import { motion, useScroll, useTransform } from "framer-motion"
 
 import { site, stats, waLink } from "../data/site"
 import { serviceGroups, industrySolutions, process } from "../data/services"
-import { caseStudies, faqs } from "../data/work"
+import { caseStudies, clients, faqs } from "../data/work"
 import { usePageMeta } from "../hooks/usePageMeta"
 
 import Icon from "../components/Icon"
 import LeadForm from "../components/LeadForm"
 import CTASection from "../components/CTASection"
+import ClientLogos from "../components/ClientLogos"
 import { DashboardCRM, DashboardShop, DashboardERP, PhoneWhatsApp, AICallCard } from "../components/Dashboards"
 import { Counter, Magnetic, Marquee, Reveal, SectionHeading, SplitHeading, SpotlightCard, Stagger, StaggerItem } from "../components/primitives"
 import Faq from "../components/Faq"
@@ -24,6 +25,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <ClientLogos clients={clients} />
       <TrustStrip />
       <PainSection />
       <ServicesOverview />

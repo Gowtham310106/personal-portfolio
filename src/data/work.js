@@ -5,11 +5,25 @@
 // collection %, revenue) drop them into `metrics` and they'll render as proof.
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Client logo wall.
+// Drop each logo file into `public/clients/` (SVG best, otherwise a PNG with a
+// transparent background) and add a row here. The strip stays hidden until
+// this list has entries, so nothing fake ever ships.
+//
+// Only add clients who are happy to be named — a logo wall is a public claim.
+//
+//   { name: "St. Xavier's College", logo: "/clients/st-xaviers.svg",
+//     system: "Admission Management CRM" },
+// ---------------------------------------------------------------------------
+export const clients = []
+
 export const caseStudies = [
   {
     slug: "college-admission-crm",
     title: "Admission Management CRM",
     client: "Arts & science college",
+    clientLogo: "", // e.g. "/clients/st-xaviers.svg" — renders beside the title
     sector: "Education",
     year: "2025",
     mockup: "crm",
@@ -38,6 +52,7 @@ export const caseStudies = [
     slug: "ecommerce-platform",
     title: "E-commerce Storefront & Admin",
     client: "Retail brand",
+    clientLogo: "",
     sector: "E-commerce",
     year: "2025",
     mockup: "shop",

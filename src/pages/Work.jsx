@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 
-import { caseStudies } from "../data/work"
+import { caseStudies, clients } from "../data/work"
 import { industrySolutions } from "../data/services"
 import { site, waLink } from "../data/site"
 import { usePageMeta } from "../hooks/usePageMeta"
 
 import Icon from "../components/Icon"
 import CTASection from "../components/CTASection"
+import ClientLogos from "../components/ClientLogos"
 import { DashboardCRM, DashboardShop } from "../components/Dashboards"
 import { Reveal, SectionHeading, SplitHeading, SpotlightCard, Stagger, StaggerItem } from "../components/primitives"
 
@@ -46,6 +47,8 @@ export default function Work() {
           </motion.p>
         </div>
       </section>
+
+      <ClientLogos clients={clients} title="Systems we've built and handed over" />
 
       {caseStudies.map((cs, i) => (
         <CaseStudy key={cs.slug} cs={cs} index={i} />
@@ -110,6 +113,14 @@ function CaseStudy({ cs, index }) {
                 <span className="h-1 w-1 rounded-full bg-ink-300" />
                 <span>{cs.year}</span>
               </div>
+              {cs.clientLogo && (
+                <img
+                  src={cs.clientLogo}
+                  alt={cs.client}
+                  loading="lazy"
+                  className="mt-5 h-10 w-auto max-w-[170px] object-contain"
+                />
+              )}
               <h2 className="mt-5 text-display-md">{cs.title}</h2>
               <p className="mt-4 text-[17.5px] leading-relaxed text-ink-500">{cs.summary}</p>
             </Reveal>
