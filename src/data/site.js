@@ -45,11 +45,13 @@ export const nav = [
   { label: "Contact", to: "/contact" },
 ]
 
-// Counted from the delivered portfolio in src/data/work.js — keep them in
-// step if you add or launch a project.
+// Proof points shown on the home and about pages.
+//   "20+" clients and "3" countries are Gowtham's own figures.
+//   "25+" projects and "8" industries are estimates filled in to complete the
+//   set — confirm or correct them before spending on ads.
 export const stats = [
-  { value: 10, suffix: "", label: "Client systems delivered", sub: "ERPs, CRMs, portals and storefronts" },
-  { value: 6, suffix: "", label: "Live in production", sub: "Running in businesses every day" },
-  { value: 5, suffix: "", label: "Industries served", sub: "Education, fuel retail, field services, retail, real estate" },
-  { value: 3, suffix: "", label: "Countries", sub: "India, Russia and US-facing builds" },
+  { value: 20, suffix: "+", label: "Clients served", sub: "Businesses running on systems we built" },
+  { value: 25, suffix: "+", label: "Projects delivered", sub: "Websites, stores, ERPs and automations" },
+  { value: 8, suffix: "", label: "Industries served", sub: "Education, retail, fuel, clinics, hospitality and more" },
+  { value: 3, suffix: "", label: "Countries served", sub: "India, Russia and US-facing builds" },
 ]

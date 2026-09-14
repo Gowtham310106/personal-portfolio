@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { motion, useInView, useMotionValue, useSpring, useReducedMotion } from "framer-motion"
+import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion"
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
 export function Reveal({ children, delay = 0, y = 28, className = "", once = true }) {
@@ -118,26 +118,62 @@ export function Marquee({ items, duration = 38, reverse = false, className = "",
 }
 
 /* ── Count-up number ───────────────────────────────────────────────────── */
+/* Deliberately not using framer-motion's useInView: its observer failed to
+   fire on mobile viewports, leaving every stat frozen at 0. This drives the
+   count from a plain IntersectionObserver, with a rect check on mount and on
+   scroll as a backstop — so the number is always right whether the band is
+   already on screen, scrolled to gently, or flicked straight past. */
 export function Counter({ to, suffix = "", duration = 1600, className = "" }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: "-60px" })
   const reduce = useReducedMotion()
   const [value, setValue] = useState(0)
 
   useEffect(() => {
-    if (!inView) return
-    if (reduce) return setValue(to)
+    const el = ref.current
+    if (!el) return
+
     let raf
-    const start = performance.now()
-    const tick = (now) => {
-      const p = Math.min((now - start) / duration, 1)
-      const eased = 1 - Math.pow(1 - p, 4)
-      setValue(Math.round(to * eased))
-      if (p < 1) raf = requestAnimationFrame(tick)
+    let started = false
+
+    const animate = () => {
+      if (started) return
+      started = true
+      if (reduce) return setValue(to)
+      const startedAt = performance.now()
+      const tick = (now) => {
+        const p = Math.min((now - startedAt) / duration, 1)
+        setValue(Math.round(to * (1 - Math.pow(1 - p, 4))))
+        if (p < 1) raf = requestAnimationFrame(tick)
+      }
+      raf = requestAnimationFrame(tick)
     }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [inView, to, duration, reduce])
+
+    // true once the number is settled and nothing more needs watching
+    const check = () => {
+      if (started) return true
+      const r = el.getBoundingClientRect()
+      if (r.bottom <= 0) { started = true; setValue(to); return true } // already scrolled past
+      if (r.top < window.innerHeight) { animate(); return true }       // on screen
+      return false
+    }
+
+    if (check()) return () => cancelAnimationFrame(raf)
+
+    const stop = () => {
+      io.disconnect()
+      window.removeEventListener("scroll", onScroll)
+    }
+    const onScroll = () => { if (check()) stop() }
+    const io = new IntersectionObserver(
+      (entries) => { if (entries.some((e) => e.isIntersecting)) { animate(); stop() } },
+      { threshold: 0 },
+    )
+
+    io.observe(el)
+    window.addEventListener("scroll", onScroll, { passive: true })
+
+    return () => { cancelAnimationFrame(raf); stop() }
+  }, [to, duration, reduce])
 
   return (
     <span ref={ref} className={className}>
