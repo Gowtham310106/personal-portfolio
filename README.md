@@ -1,12 +1,75 @@
-# React + Vite
+# Build Fast Web — buildfastweb.in
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing site for **Build Fast Web**: websites, custom business software, ERPs,
+mobile apps, AI automation and digital marketing.
 
-Currently, two official plugins are available:
+React + Vite + Tailwind, with Framer Motion for the scroll/reveal animation work.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Run it
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev      # local dev server
+npm run build    # production build to dist/
+npm run preview  # serve the production build
+npm run lint
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Where to edit things
+
+Copy and content live in `src/data/` — you can update the site without touching
+components:
+
+| File | What's in it |
+| --- | --- |
+| `src/data/site.js` | Brand name, phone, email, WhatsApp number, Instagram/LinkedIn URLs, stats |
+| `src/data/services.js` | The six service groups, the industry solutions grid, the 6-step process |
+| `src/data/work.js` | Case studies and the FAQ list |
+
+Pages are in `src/pages/` (Home, Services, Work, About, Contact, NotFound) and
+shared components in `src/components/`.
+
+### Lead form
+
+`src/components/LeadForm.jsx` requires a name plus **either** a mobile number or
+an email — neither one alone is compulsory. The message box is optional.
+
+By default a submission opens a pre-filled WhatsApp message so no enquiry is
+lost. To collect leads in an inbox or sheet instead, set a webhook endpoint
+(Formspree, Web3Forms, or your own API):
+
+```bash
+# .env
+VITE_LEAD_ENDPOINT="https://formspree.io/f/xxxxxxx"
+```
+
+The form POSTs JSON (`name`, `phone`, `email`, `service`, `message`, `source`,
+`submittedAt`) and falls back to the WhatsApp handoff if the request fails.
+The chatbot posts its captured leads to the same endpoint.
+
+### Chatbot
+
+`src/components/Chatbot.jsx` is a rule-based assistant — no API key, no per
+message cost, instant replies. Answers live in the `KB` array: each entry has
+`keys` (keywords to match) and the reply text plus quick-reply chips. Add
+entries there as new questions come up.
+
+### Brand
+
+Colours and type are defined in `tailwind.config.js`:
+
+- `accent` `#FFC800` — the yellow, for fills, buttons and the headline marker
+- `accent-700` `#8F6B00` — for text and thin strokes on white (pure yellow fails
+  contrast at small sizes)
+- `accent-chart` `#D9A400` — chart lines, small dots and indicators
+
+Anything with a yellow background uses **black** type, never white.
+
+## Deploying
+
+`vercel.json` contains the SPA rewrite rule and asset caching headers. Point the
+domain `buildfastweb.in` at the deployment, and update `site.url` in
+`src/data/site.js` if the domain ever changes.
+
+Before launching ad traffic, replace the placeholder proof numbers in
+`stats` (`src/data/site.js`) with your real, verifiable figures.
