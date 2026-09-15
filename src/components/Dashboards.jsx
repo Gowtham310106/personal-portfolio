@@ -243,14 +243,14 @@ export function DashboardShop({ className = "" }) {
         <div className="min-w-0 flex-1">
           <TopBar title="Orders & revenue" chips={["Last 7 days"]} />
           <div className="grid grid-cols-3 gap-2 p-3">
-            <Kpi label="Revenue" value="₹4.8L" delta="+31%" i={0} />
+            <Kpi label="Visitors" value="4,820" delta="+31%" i={0} />
             <Kpi label="Orders" value="312" delta="+12%" i={1} />
             <Kpi label="Low stock" value="7" delta="alert" i={2} up={false} />
           </div>
           <div className="px-3">
             <div className="rounded-lg border border-line p-2.5">
               <div className="mb-1 flex items-center justify-between">
-                <p className="text-[9px] font-semibold text-ink-500">Daily sales</p>
+                <p className="text-[9px] font-semibold text-ink-500">Daily orders</p>
                 <span className="flex items-center gap-1 text-[8px] text-emerald-600">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulseDot" /> live
                 </span>
@@ -259,8 +259,8 @@ export function DashboardShop({ className = "" }) {
             </div>
           </div>
           <div className="mt-2.5">
-            <Row cols={["#10428", "2 items · ₹2,340"]} status="Shipped" i={0} />
-            <Row cols={["#10429", "1 item · ₹899"]} status="Paid" i={1} />
+            <Row cols={["#10428", "2 items · Mumbai"]} status="Shipped" i={0} />
+            <Row cols={["#10429", "1 item · Chennai"]} status="Paid" i={1} />
           </div>
         </div>
       </div>
@@ -278,17 +278,17 @@ export function DashboardERP({ className = "", url = "erp.yourbusiness.in" }) {
           <TopBar title="Quotations & stock" chips={["Auto-sync"]} />
           <div className="grid grid-cols-2 gap-2 p-3">
             <Kpi label="Open quotes" value="38" delta="+6" i={0} />
-            <Kpi label="Outstanding" value="₹2.1L" delta="-14%" i={1} />
+            <Kpi label="Pending invoices" value="12" delta="-4" i={1} />
           </div>
           <div className="px-3">
             <div className="rounded-lg border border-line p-2.5">
-              <p className="mb-1 text-[9px] font-semibold text-ink-500">Collection trend</p>
+              <p className="mb-1 text-[9px] font-semibold text-ink-500">Quotations sent</p>
               <div className="h-[54px]"><LineChart points="0,48 30,40 60,44 90,26 120,30 150,14 182,10" /></div>
             </div>
           </div>
           <div className="mt-2.5">
-            <Row cols={["QTN-2291", "Sri Traders · ₹48,200"]} status="Pending" i={0} />
-            <Row cols={["INV-1188", "Metro Stores · ₹1,12,000"]} status="Paid" i={1} />
+            <Row cols={["QTN-2291", "Sri Traders · 14 items"]} status="Pending" i={0} />
+            <Row cols={["INV-1188", "Metro Stores · 26 items"]} status="Paid" i={1} />
           </div>
         </div>
       </div>
