@@ -1,0 +1,12 @@
+{
+  "name": "buildfastweb-presentation",
+  "private": true,
+  "description": "Generator for the Build Fast Web capability deck. Kept separate from the website so the deck's tooling never ships with the site.",
+  "scripts": {
+    "mockups": "node render.cjs mock1.html mock2.html mock3.html mock4.html mock5.html && node logo.cjs",
+    "deck": "node build.cjs"
+  },
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}

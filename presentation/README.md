@@ -32,10 +32,16 @@ is changed in the HTML — never by editing a PNG.
 
 ```bash
 cd presentation/src
-npm install pptxgenjs                 # the only dependency
-node render.cjs mock1.html mock2.html mock3.html mock4.html mock5.html   # mockups → ../mockups
-node logo.cjs                          # logo mark → mockups/logo.png
-node build.cjs                         # → Build-Fast-Web-Capabilities.pptx
+npm install          # pptxgenjs — scoped to this folder, never to the website
+npm run mockups      # re-render the dashboard PNGs (needs Playwright's Chromium)
+npm run deck         # → ../Build-Fast-Web-Capabilities.pptx
+```
+
+To refresh the PDF from the rebuilt deck:
+
+```bash
+cd presentation
+soffice --headless --convert-to pdf --outdir . Build-Fast-Web-Capabilities.pptx
 ```
 
 `render.cjs`, `logo.cjs` and `build.cjs` expect Playwright's Chromium and write
