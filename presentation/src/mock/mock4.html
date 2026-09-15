@@ -1,0 +1,220 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="mock.css"></head><body>
+
+<!-- ============ 10. AI RECEPTIONIST ============ -->
+<section class="board" id="aicall">
+ <div class="sb">
+  <div class="sb-brand">__LOGO__<b>Build Fast</b></div>
+  <div class="sb-app">AI Receptionist</div>
+  <nav class="nav">
+   <a class="on"><i class="d"></i>Live calls</a><a><i class="d"></i>Call log</a><a><i class="d"></i>Captured leads</a>
+   <a><i class="d"></i>Appointments booked</a><a><i class="d"></i>Outbound campaigns</a><a><i class="d"></i>Knowledge &amp; script</a>
+   <a><i class="d"></i>Handover rules</a><a><i class="d"></i>Numbers &amp; WhatsApp</a><a><i class="d"></i>Reports</a>
+  </nav>
+  <div class="sb-foot">Answering 24/7<br>English · தமிழ் · हिन्दी</div>
+ </div>
+ <div class="mn">
+  <div class="top">
+   <div><h1>Live calls</h1><div class="sub">1 call in progress · answered on the 2nd ring</div></div>
+   <div class="top-r"><div class="srch">Search caller number…</div><div class="btn y">Start outbound run</div><div class="av">AI</div></div>
+  </div>
+  <div class="kpis">
+   <div class="kpi"><div class="l">Calls answered today</div><div class="v">86</div><div class="m">100% picked up · 0 missed</div></div>
+   <div class="kpi"><div class="l">Leads captured</div><div class="v">41</div><div class="m">Name, number &amp; intent recorded</div></div>
+   <div class="kpi"><div class="l">Appointments booked</div><div class="v">23</div><div class="m">Straight into the calendar</div></div>
+   <div class="kpi dark"><div class="l">After-hours calls</div><div class="v">29</div><div class="m">Would have been missed entirely</div></div>
+  </div>
+  <div class="grid2">
+   <div class="col">
+    <div class="card fill">
+     <div class="ch"><h2>Call in progress — +91 98xxx 41207</h2><span>Live transcript · 01:12</span></div>
+     <div class="chat">
+      <div class="bub them"><b>Caller:</b> Hi, is this Dr. Mehta's clinic? I want to see the doctor tomorrow.</div>
+      <div class="bub us"><b>AI:</b> Yes, this is Dr. Mehta's clinic. I can book that for you. Is this for a new consultation or a follow-up?</div>
+      <div class="bub them"><b>Caller:</b> Follow-up. I came last month for a knee problem.</div>
+      <div class="bub us"><b>AI:</b> Got it. Dr. Mehta has 11:20 AM and 4:40 PM free tomorrow. Which suits you better?</div>
+      <div class="bub them"><b>Caller:</b> Evening one is fine.</div>
+      <div class="bub us"><b>AI:</b> Booked — 4:40 PM tomorrow with Dr. Mehta. May I have your name for the record?</div>
+      <div class="bub them"><b>Caller:</b> Suresh Kumar.</div>
+      <div class="bub us"><b>AI:</b> Thank you, Suresh. You'll get a confirmation on WhatsApp in a moment. Anything else I can help with?</div>
+      <div class="bub them"><b>Caller:</b> What's the consultation fee now?</div>
+      <div class="bub us"><b>AI:</b> A follow-up within 90 days is ₹400. You can pay at the desk or on the link in your WhatsApp confirmation.</div>
+      <div class="bub them"><b>Caller:</b> Perfect, thank you.</div>
+      <div class="bub us"><b>AI:</b> Happy to help. See you tomorrow at 4:40 PM.</div>
+     </div>
+     <div class="note">If the caller asks something outside its knowledge, the call is transferred to a human — with the conversation so far already summarised.</div>
+    </div>
+   </div>
+   <div class="col">
+    <div class="card">
+     <div class="ch"><h2>Captured automatically</h2><span>No one typed this</span></div>
+     <div class="list">
+      <div class="li"><div class="ic d">NM</div><div class="tx"><b>Suresh Kumar</b><span>+91 98xxx 41207 · returning patient</span></div><span class="chip ok">Matched</span></div>
+      <div class="li"><div class="ic y">IN</div><div class="tx"><b>Intent: follow-up consultation</b><span>Knee · last visit 14 Aug</span></div><span class="chip warn">Tagged</span></div>
+      <div class="li"><div class="ic">CA</div><div class="tx"><b>Slot booked: tomorrow 4:40 PM</b><span>Dr. Mehta · calendar updated</span></div><span class="chip ok">Confirmed</span></div>
+      <div class="li"><div class="ic">WA</div><div class="tx"><b>WhatsApp confirmation sent</b><span>+ reminder 2 hours before</span></div><span class="chip ok">Sent</span></div>
+     </div>
+    </div>
+    <div class="card fill">
+     <div class="ch"><h2>Today's call log</h2><span>Every call, with outcome</span></div>
+     <table>
+      <tr><th>Time</th><th>Caller</th><th>Intent</th><th class="r">Outcome</th></tr>
+      <tr><td class="mut">6:42 PM</td><td class="b">+91 98xxx 41207</td><td class="mut">Follow-up</td><td class="r"><span class="chip acc">On call</span></td></tr>
+      <tr><td class="mut">6:18 PM</td><td class="b">+91 94xxx 88210</td><td class="mut">New patient</td><td class="r"><span class="chip ok">Booked</span></td></tr>
+      <tr><td class="mut">5:54 PM</td><td class="b">+91 73xxx 30114</td><td class="mut">Timings &amp; fees</td><td class="r"><span class="chip info">Answered</span></td></tr>
+      <tr><td class="mut">5:31 PM</td><td class="b">+91 90xxx 77420</td><td class="mut">Report ready?</td><td class="r"><span class="chip warn">Handed over</span></td></tr>
+      <tr><td class="mut">5:02 PM</td><td class="b">+91 89xxx 20981</td><td class="mut">Reschedule</td><td class="r"><span class="chip ok">Rebooked</span></td></tr>
+      <tr><td class="mut">4:47 PM</td><td class="b">+91 97xxx 55018</td><td class="mut">Address</td><td class="r"><span class="chip info">Answered</span></td></tr>
+     </table>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ============ 11. CHATBOT ============ -->
+<section class="board" id="chatbot">
+ <div class="sb">
+  <div class="sb-brand">__LOGO__<b>Build Fast</b></div>
+  <div class="sb-app">Website Chatbot</div>
+  <nav class="nav">
+   <a class="on"><i class="d"></i>Conversations</a><a><i class="d"></i>Captured leads</a><a><i class="d"></i>Train the bot</a>
+   <a><i class="d"></i>Quick replies</a><a><i class="d"></i>WhatsApp handoff</a><a><i class="d"></i>Working hours</a>
+   <a><i class="d"></i>Integrations</a><a><i class="d"></i>Reports</a>
+  </nav>
+  <div class="sb-foot">Trained on your site,<br>pricing and FAQs</div>
+ </div>
+ <div class="mn">
+  <div class="top">
+   <div><h1>Conversations</h1><div class="sub">Answering on your website right now · avg. reply 1.2 seconds</div></div>
+   <div class="top-r"><div class="srch">Search conversation…</div><div class="btn">Export leads</div><div class="av">WB</div></div>
+  </div>
+  <div class="kpis">
+   <div class="kpi"><div class="l">Chats this week</div><div class="v">312</div><div class="m">Website + WhatsApp</div></div>
+   <div class="kpi"><div class="l">Leads captured</div><div class="v">88</div><div class="m">28% of all chats</div></div>
+   <div class="kpi"><div class="l">Answered without staff</div><div class="v">79%</div><div class="m">Pricing, timing, coverage, FAQs</div></div>
+   <div class="kpi dark"><div class="l">Avg. first reply</div><div class="v">1.2s</div><div class="m">Day, night, Sunday — same speed</div></div>
+  </div>
+  <div class="grid2">
+   <div class="col">
+    <div class="card fill">
+     <div class="ch"><h2>Live chat — visitor from Google Ads</h2><span>Viewing the pricing page</span></div>
+     <div class="chat">
+      <div class="bub them">Do you build software for a petrol pump? We have two outlets.</div>
+      <div class="bub us">Yes — we've built a full petrol pump operations system: shift management, nozzle-wise sales, credit customers, staff salary and daily reports. It handles multiple outlets under one owner login.</div>
+      <div class="bub them">How long does it take and roughly what does it cost?</div>
+      <div class="bub us">A system like that typically takes 4–8 weeks and is quoted as a fixed price after a 30-minute discovery call — no hourly billing. Shall I have Gowtham call you with a number for two outlets?</div>
+      <div class="bub them">Yes, call me tomorrow morning.</div>
+      <div class="bub us">Done. What's the best number and your name?</div>
+      <div class="bub them">Karthik — 98xxx 21104</div>
+      <div class="bub us">Noted, Karthik. Gowtham will call you tomorrow between 10 and 11 AM. I've also sent you the petrol pump case study on WhatsApp so you can see the actual screens.</div>
+      <div class="bub them">One more — can it handle credit customers and their outstanding?</div>
+      <div class="bub us">Yes. Credit customers, limits, outstanding ageing and automatic payment reminders are all part of it.</div>
+     </div>
+     <div class="note">The bot only answers from what you've trained it on — your services, pricing and process. It doesn't invent things.</div>
+    </div>
+   </div>
+   <div class="col">
+    <div class="card">
+     <div class="ch"><h2>Lead created</h2><span>Instantly, while he's still on the site</span></div>
+     <div class="list">
+      <div class="li"><div class="ic d">KA</div><div class="tx"><b>Karthik · 98xxx 21104</b><span>Petrol pump software · 2 outlets</span></div><span class="chip ok">New lead</span></div>
+      <div class="li"><div class="ic y">SR</div><div class="tx"><b>Source: Google Ads → pricing page</b><span>Attributed to campaign "fuel-erp"</span></div><span class="chip warn">Tracked</span></div>
+      <div class="li"><div class="ic">@</div><div class="tx"><b>Emailed to you + WhatsApp alert</b><span>Reply-to set to the enquirer</span></div><span class="chip ok">Sent</span></div>
+      <div class="li"><div class="ic">CB</div><div class="tx"><b>Callback scheduled</b><span>Tomorrow 10:00 AM · reminder set</span></div><span class="chip info">Queued</span></div>
+     </div>
+    </div>
+    <div class="card fill">
+     <div class="ch"><h2>What visitors ask most</h2><span>Last 30 days</span></div>
+     <div class="rows">
+      <div class="row"><div class="t"><b>Pricing &amp; payment terms</b><span>34%</span></div><div class="prog"><i class="y" style="width:34%"></i></div></div>
+      <div class="row"><div class="t"><b>"Do you build X for my business?"</b><span>27%</span></div><div class="prog"><i class="y" style="width:27%"></i></div></div>
+      <div class="row"><div class="t"><b>Timeline &amp; process</b><span>18%</span></div><div class="prog"><i style="width:18%"></i></div></div>
+      <div class="row"><div class="t"><b>Support &amp; maintenance</b><span>13%</span></div><div class="prog"><i style="width:13%"></i></div></div>
+      <div class="row"><div class="t"><b>Everything else → human</b><span>8%</span></div><div class="prog"><i style="width:8%;background:#A1A1AA"></i></div></div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ============ 12. BOOKING SYSTEM ============ -->
+<section class="board" id="booking">
+ <div class="sb">
+  <div class="sb-brand">__LOGO__<b>Build Fast</b></div>
+  <div class="sb-app">Booking System</div>
+  <nav class="nav">
+   <a class="on"><i class="d"></i>Calendar</a><a><i class="d"></i>Bookings</a><a><i class="d"></i>Services &amp; pricing</a>
+   <a><i class="d"></i>Staff &amp; availability</a><a><i class="d"></i>Online payments</a><a><i class="d"></i>Reminders</a>
+   <a><i class="d"></i>Customers</a><a><i class="d"></i>Reviews</a><a><i class="d"></i>Reports</a>
+  </nav>
+  <div class="sb-foot">Public booking page<br>yourbusiness.in/book</div>
+ </div>
+ <div class="mn">
+  <div class="top">
+   <div><h1>Bookings</h1><div class="sub">Customers book themselves · payment taken up front</div></div>
+   <div class="top-r"><div class="srch">Search customer…</div><div class="btn y">Block a slot</div><div class="av">BK</div></div>
+  </div>
+  <div class="kpis">
+   <div class="kpi"><div class="l">Bookings this week</div><div class="v">148</div><div class="m">92 booked outside office hours</div></div>
+   <div class="kpi"><div class="l">Paid online</div><div class="v">₹2.16L</div><div class="m">Advance collected at booking</div></div>
+   <div class="kpi"><div class="l">No-shows</div><div class="v">4%</div><div class="m">Down from 19% before reminders</div></div>
+   <div class="kpi dark"><div class="l">Slots free today</div><div class="v">07</div><div class="m">Shown live on your website</div></div>
+  </div>
+  <div class="grid2">
+   <div class="col">
+    <div class="card">
+     <div class="ch"><h2>This week</h2><span>Booked / total slots per day</span></div>
+     <div class="cal">
+      <div class="h">Mon</div><div class="h">Tue</div><div class="h">Wed</div><div class="h">Thu</div><div class="h">Fri</div><div class="h">Sat</div><div class="h">Sun</div>
+      <div class="c part"><b>18/24</b>6 free</div>
+      <div class="c part"><b>21/24</b>3 free</div>
+      <div class="c full"><b>24/24</b>Full</div>
+      <div class="c part"><b>17/24</b>7 free</div>
+      <div class="c part"><b>19/24</b>5 free</div>
+      <div class="c full"><b>24/24</b>Full</div>
+      <div class="c"><b>08/24</b>16 free</div>
+     </div>
+     <div class="note">Double-booking becomes impossible — the slot disappears the second someone pays for it.</div>
+    </div>
+    <div class="card fill">
+     <div class="ch"><h2>Today's bookings</h2><span>Booked online, by chatbot or by AI receptionist</span></div>
+     <table>
+      <tr><th>Time</th><th>Customer</th><th>Service</th><th>Booked via</th><th class="r">Payment</th></tr>
+      <tr><td class="b">9:30 AM</td><td>Priya N</td><td class="mut">Consultation</td><td class="mut">Website</td><td class="r"><span class="chip ok">₹500 paid</span></td></tr>
+      <tr><td class="b">11:00 AM</td><td>Arun S</td><td class="mut">Full service</td><td class="mut">WhatsApp bot</td><td class="r"><span class="chip ok">₹1,200 paid</span></td></tr>
+      <tr><td class="b">12:30 PM</td><td>Deepa R</td><td class="mut">Workshop seat</td><td class="mut">Instagram link</td><td class="r"><span class="chip ok">₹2,000 paid</span></td></tr>
+      <tr><td class="b">2:00 PM</td><td>Mohan K</td><td class="mut">Site visit</td><td class="mut">AI receptionist</td><td class="r"><span class="chip warn">Pay at visit</span></td></tr>
+      <tr><td class="b">4:15 PM</td><td>Latha V</td><td class="mut">Consultation</td><td class="mut">Website</td><td class="r"><span class="chip ok">₹500 paid</span></td></tr>
+      <tr><td class="b">6:00 PM</td><td>Sathish M</td><td class="mut">Repeat service</td><td class="mut">Reminder link</td><td class="r"><span class="chip ok">₹900 paid</span></td></tr>
+     </table>
+    </div>
+   </div>
+   <div class="col">
+    <div class="card">
+     <div class="ch"><h2>What happens on every booking</h2><span>Automatic</span></div>
+     <div class="list">
+      <div class="li"><div class="ic d">1</div><div class="tx"><b>Slot locked + payment taken</b><span>UPI, card or pay-later</span></div><span class="chip ok">Instant</span></div>
+      <div class="li"><div class="ic y">2</div><div class="tx"><b>Confirmation to customer</b><span>WhatsApp + email + calendar invite</span></div><span class="chip ok">Instant</span></div>
+      <div class="li"><div class="ic">3</div><div class="tx"><b>Reminder before the slot</b><span>24 hours and 2 hours before</span></div><span class="chip info">Scheduled</span></div>
+      <div class="li"><div class="ic">4</div><div class="tx"><b>Follow-up after</b><span>Review request + rebook link</span></div><span class="chip info">Scheduled</span></div>
+     </div>
+    </div>
+    <div class="card fill">
+     <div class="ch"><h2>When customers actually book</h2><span>Last 30 days</span></div>
+     <div class="bars">
+      <div class="b"><div class="f l" style="height:22%"></div><div class="x">6–9a</div></div>
+      <div class="b"><div class="f" style="height:48%"></div><div class="x">9–12</div></div>
+      <div class="b"><div class="f" style="height:56%"></div><div class="x">12–3p</div></div>
+      <div class="b"><div class="f" style="height:64%"></div><div class="x">3–6p</div></div>
+      <div class="b"><div class="f d" style="height:92%"></div><div class="x">6–9p</div></div>
+      <div class="b"><div class="f d" style="height:71%"></div><div class="x">9–12a</div></div>
+     </div>
+     <div class="legend"><span><i style="background:#0B0B0F"></i>After your office closes — 62% of bookings</span></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+</body></html>
