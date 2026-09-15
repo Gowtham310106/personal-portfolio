@@ -500,7 +500,7 @@ cardGrid({
 /* ═══════════════ WHAT YOU GET / STACK ═══════════════ */
 {
   const s = pres.addSlide();
-  head(s, 'What you get, and what it is built on', 'The same standards on a ₹40,000 website and a ₹5 lakh ERP.');
+  head(s, 'What you get, and what it is built on', 'The same standards on a one-page website and a full ERP.');
   const left = ['Fixed price agreed before the build starts','Clickable design approved before any code','A live link and a video update every week','Your existing data migrated in, not retyped','Staff trained on a call they can record','30 days free support, then an optional care plan','Full source code and accounts in your name','Handover documents any future developer can read'];
   s.addShape(RR, { x:0.6, y:1.62, w:6.35, h:4.56, fill:{ color:P.white }, line:{ color:P.line, width:1 }, rectRadius:0.11 });
   t(s, 'INCLUDED IN EVERY PROJECT', { x:0.92, y:1.9, w:5.7, h:0.3, fontSize:10.5, bold:true, color:P.accInk, charSpacing:1.1 });
