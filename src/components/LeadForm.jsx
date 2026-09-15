@@ -22,7 +22,8 @@ const empty = { name: "", email: "", phone: "", service: "", message: "", compan
 export default function LeadForm({ compact = false, id = "lead-form" }) {
   const [values, setValues] = useState(empty)
   const [errors, setErrors] = useState({})
-  const [state, setState] = useState("idle") // idle | sending | done | error
+  const [state, setState] = useState("idle") // idle | sending | done
+  const [route, setRoute] = useState(null) // how it actually got to us: "email" | "whatsapp"
 
   const set = (key) => (e) => {
     setValues((v) => ({ ...v, [key]: e.target.value }))
@@ -77,19 +78,36 @@ export default function LeadForm({ compact = false, id = "lead-form" }) {
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify({ ...values, source: site.domain, submittedAt: new Date().toISOString() }),
         })
-        if (!res.ok) throw new Error(res.statusText)
+
+        // A 404 from a static host returns no JSON at all, and some hosts
+        // answer 200 with an HTML page — neither means the mail was sent, so
+        // only a parsed {ok:true} counts as delivered.
+        let payload = null
+        try { payload = await res.json() } catch { /* not JSON */ }
+        if (!res.ok || !payload?.ok) {
+          throw new Error(payload?.error || `${res.status} ${res.statusText}`.trim())
+        }
+
+        setRoute("email")
         setState("done")
         return
-      } catch {
-        // Never lose a lead: fall through to the WhatsApp handoff.
+      } catch (err) {
+        // Never lose a lead: fall through to the WhatsApp handoff, but say so
+        // in the console rather than pretending an email went out.
+        console.warn(
+          `[lead] ${site.leadEndpoint} did not accept the enquiry (${err.message}). ` +
+            `Handing off to WhatsApp. Open ${site.leadEndpoint} in a browser to check the mail configuration.`,
+        )
         window.open(waLink(summary()), "_blank", "noopener")
+        setRoute("whatsapp")
         setState("done")
         return
       }
     }
 
-    // No endpoint configured yet → hand the enquiry straight to WhatsApp.
+    // No endpoint configured → hand the enquiry straight to WhatsApp.
     window.open(waLink(summary()), "_blank", "noopener")
+    setRoute("whatsapp")
     setState("done")
   }
 
@@ -118,13 +136,15 @@ export default function LeadForm({ compact = false, id = "lead-form" }) {
         </motion.span>
         <h3 className="mt-5 text-[26px] font-extrabold tracking-tight">Got it, {values.name.split(" ")[0]}.</h3>
         <p className="mt-2 max-w-sm text-[15px] leading-relaxed text-ink-500">
-          Your enquiry is with us. We reply within a few working hours — usually much faster on WhatsApp.
+          {route === "email"
+            ? "Your enquiry is with us. We reply within a few working hours — usually much faster on WhatsApp."
+            : "We've opened WhatsApp with your enquiry ready to go — press send and we'll pick it up right away."}
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a href={waLink(`Hi, I'm ${values.name}. I just submitted an enquiry on your site.`)} target="_blank" rel="noreferrer" className="btn-accent">
             Continue on WhatsApp
           </a>
-          <button onClick={() => { setValues(empty); setState("idle") }} className="btn-ghost">
+          <button onClick={() => { setValues(empty); setRoute(null); setState("idle") }} className="btn-ghost">
             Send another
           </button>
         </div>

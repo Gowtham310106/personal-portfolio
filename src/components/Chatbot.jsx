@@ -181,7 +181,7 @@ export default function Chatbot() {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify({ ...complete, source: `${site.domain} · chatbot`, submittedAt: new Date().toISOString() }),
-        }).catch(() => {})
+        }).catch((err) => console.warn(`[lead] chatbot enquiry not delivered by email (${err.message}) — the WhatsApp handoff still applies.`))
       }
 
       botSay(

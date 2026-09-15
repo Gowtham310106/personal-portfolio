@@ -27,8 +27,24 @@ const escapeHtml = (v) =>
   ))
 
 export default async function handler(req, res) {
+  // Health check — open https://yoursite/api/lead in a browser to confirm the
+  // function is deployed and the mailbox credentials are present. Reports
+  // only whether they are set, never their values.
+  if (req.method === "GET") {
+    const configured = Boolean(process.env.ZOHO_USER && process.env.ZOHO_PASS)
+    return res.status(200).json({
+      ok: true,
+      service: "lead",
+      mailConfigured: configured,
+      smtpHost: process.env.ZOHO_HOST || "smtp.zoho.in",
+      hint: configured
+        ? "Credentials are set. A failure now means SMTP rejected them — check the app password and that smtpHost matches your Zoho region."
+        : "Set ZOHO_USER and ZOHO_PASS in your host's environment variables, then redeploy.",
+    })
+  }
+
   if (req.method !== "POST") {
-    res.setHeader("Allow", "POST")
+    res.setHeader("Allow", "GET, POST")
     return res.status(405).json({ ok: false, error: "Method not allowed" })
   }
 
